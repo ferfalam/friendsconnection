@@ -20,6 +20,9 @@ class PostsController < ApplicationController
   end
 
   def edit
+    unless current_user.id == @post.user_id
+      redirect_to posts_path, notice: "You are not allowed to do this action"
+    end
   end
 
   def update
@@ -31,6 +34,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    unless current_user.id == set_post.user_id
+      redirect_to posts_path, notice: "You are not allowed to do this action"
+    end
     set_post.destroy
     redirect_to posts_path, notice: "Post was successfully deleted."
   end

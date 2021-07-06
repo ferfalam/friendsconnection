@@ -3,8 +3,12 @@
         <%= image_tag @post.image.url, class:"card-img-top" %>
         <div class="card-body">
             <p class="card-text"><%=@post.content%></p>
-            <%= link_to 'Edit', edit_post_path(@post),class:"btn btn-warning mr-3" %> 
-            <%= link_to "Delete", post_path(@post),class:"btn btn-danger mr-3", method: "delete", data:{ confirm: "Are you sure ?" } %>
+            
+            <% if @post.user_id == current_user.id %>
+                <%= link_to 'Edit', edit_post_path(@post),class:"btn btn-warning mr-3" %> 
+                <%= link_to "Delete", post_path(@post),class:"btn btn-danger mr-3", method: "delete", data:{ confirm: "Are you sure ?" } %>
+            <% end %>
+            
             <p class="author">By <b><%= @post.user.firstname+" "+@post.user.lastname%></b> </p>
         </div>
     </div>

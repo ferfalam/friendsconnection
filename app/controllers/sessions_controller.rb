@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email])
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
-      redirect_to new_post_path
+      redirect_to posts_path
     else
       flash.now[:danger] = "Credentials not recognized"
       render :new
