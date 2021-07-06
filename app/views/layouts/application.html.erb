@@ -4,12 +4,22 @@
     <title>FriendsConnection</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+      <h5 class="my-0 mr-md-auto font-weight-normal">Friends Connection</h5>
+      
+      <%= link_to  "Sign up", new_user_path, class:"btn btn-outline-primary" %>
+    </div>
     <%= yield %>
+    <footer class="pt-4 border-top">
+          <div class="col-12 col-md">
+            <span>DiveIntoCode | All right reserved &copy; 2021</span>
+          </div>
+      </footer>
   </body>
 </html>
