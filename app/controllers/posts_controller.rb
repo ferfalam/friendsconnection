@@ -2,10 +2,12 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :update, :show, :destroy]
   def new
     @post= Post.new
+    @post.user_id = current_user.id
   end
 
   def create
     @post= Post.new(post_params)
+    @post.user_id = current_user.id
     if params[:back]
       render:new
     else
@@ -42,7 +44,7 @@ class PostsController < ApplicationController
 
   def confirm
     @post = Post.new(post_params)
-    #@post.user_id = current_user.id
+    @post.user_id = current_user.id
     render :new if @post.invalid?
   end
 

@@ -15,7 +15,6 @@
       <% if logged_in? %>
         <%= link_to  "New post", new_post_path, class:"btn btn-outline-primary mr-3" %>
         <%= link_to  "All post", posts_path, class:"btn btn-outline-primary mr-3" %>
-        <%= link_to  "Profil", user_path(current_user.id), class:"btn btn-outline-primary mr-3"  %>
         <%= link_to  "Logout", session_path(current_user.id), method: :delete, data:{confirm: "Are you sure ?"}, class:"btn btn-outline-primary mr-3"  %>
       <% else %>
         <%= link_to  "Sign in", new_session_path, class:"btn btn-outline-primary mr-3" %>
