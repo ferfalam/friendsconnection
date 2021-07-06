@@ -1,0 +1,14 @@
+<div class="container my-3">
+    <h1>New Post</h1>
+    <%= form_with(model: @post, local: true) do |f| %>
+        <div class="form-group">
+            <%= f.text_area :content, class:"form-control", placeholder:"Content" %>
+        </div>
+        <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
+        <div class="form-group">
+            <%= f.file_field :image, class:"form-control-file                                   " %>
+        </div>
+        <%= f.hidden_field :image_cache %>
+        <%= f.submit class:"btn btn-primary" %>
+    <% end %>
+</div>
