@@ -3,14 +3,12 @@
 
     <%= form_with(model: @post, local: true) do |f| %>
         <%= f.hidden_field :content, class:"form-control", placeholder:"Content" %>
-        <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
         <%= f.hidden_field :image, class:"form-control-file" %>
         <%= f.hidden_field :image_cache %>
-        <p>
-            <strong>Image:</strong>
-            <%= @feed.image.url %>
+        <p> <%=@post.content%> 
+            <%= image_tag @post.image.url, class:"w-100" if @post.image && @post.image.url %>
         </p>
-        <%= form.submit  "Confirm", class:"input-submit success" %>
+        <%= f.submit  "Confirm", class:"btn btn-success" %>
         <%= f.submit"Back", name: 'back', class:"btn btn-primary" %>
     <% end %>
 </div>

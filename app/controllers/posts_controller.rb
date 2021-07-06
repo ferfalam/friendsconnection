@@ -6,11 +6,15 @@ class PostsController < ApplicationController
 
   def create
     @post= Post.new(post_params)
-    if @post.save
-      redirect_to post_path(@post.id)
+    if params[:back]
+      render:new
     else
-      render :new
-    end 
+      if @post.save
+        redirect_to posts_path, notice: "Post was successfully updated."
+      else
+        render :new
+      end 
+    end
   end
 
   def edit
@@ -37,6 +41,9 @@ class PostsController < ApplicationController
   end
 
   def confirm
+    @post = Post.new(post_params)
+    #@post.user_id = current_user.id
+    render :new if @post.invalid?
   end
 
   private

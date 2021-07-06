@@ -3,7 +3,7 @@
     <div class="form-group">
         <%= f.text_area :content, class:"form-control", placeholder:"Content" %>
     </div>
-    <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
+    <%= image_tag @post.image.url, class:"w-100" if @post.image && @post.image.url %>
     <div class="form-group">
         <%= f.file_field :image, class:"form-control-file" %>
     </div>
