@@ -1,8 +1,10 @@
-<div class="card" style="width: 18rem;">
-    <%= image_tag @post.image.url, class:"card-img-top" %>
-  <div class="card-body">
-    <p class="card-text"><%=@post.content%></p>
-    <%= link_to 'Edit', edit_post_path(@post),class:"btn btn-warning mr-3" %> 
-    <%= link_to "Delete", posts_path(@post.id), method: "delete", data:{ confirm: "Are you sure ?" } %>
-  </div>
+<div class="container my-2">
+    <div class="card" style="width: 100%;">
+        <%= image_tag @post.image.url, class:"card-img-top" %>
+        <div class="card-body">
+            <p class="card-text"><%=@post.content%></p>
+            <%= link_to 'Edit', edit_post_path(@post),class:"btn btn-warning mr-3" %> 
+            <%= link_to "Delete", post_path(@post),class:"btn btn-danger mr-3", method: "delete", data:{ confirm: "Are you sure ?" } %>
+        </div>
+    </div>
 </div>
